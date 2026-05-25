@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "571158ed-bf2c-45e3-b419-af1c8e2c04db",
+		"name": "Expense Tracker API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44854693",
+		"_collection_link": "https://jay-6097851.postman.co/workspace/Jay-'s-Workspace~0312b781-2d23-4065-8ece-d33364de1b3e/collection/44854693-571158ed-bf2c-45e3-b419-af1c8e2c04db?action=share&source=collection_link&creator=44854693"
+	},
+	"item": [
+		{
+			"name": "Login User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json();",
+							"pm.environment.set(\"access_token\", response.access);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"testuser2\",\n  \"password\": \"Test1234!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/login/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"testuser2\",\n  \"email\": \"testuser2@gmail.com\",\n  \"password\": \"Test1234!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/register/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc5ODI0Mjk0LCJpYXQiOjE3Nzk3Mzc4OTQsImp0aSI6ImM5ZDc4NzA0YmRjYzRhMzZiNjg1NzQ2YWE5NjNmODMzIiwidXNlcl9pZCI6IjQifQ.wuD8NLdAWr7HgC7bDEoNEaTEy2jfi3gDtiMNyKUI9Lw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://expense-tracker-production-8118.up.railway.app/api/transactions/",
+					"protocol": "https",
+					"host": [
+						"expense-tracker-production-8118",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"transactions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"testuser2\",\n    \"password\": \"Test1234!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://expense-tracker-production-8118.up.railway.app/api/login/",
+					"protocol": "https",
+					"host": [
+						"expense-tracker-production-8118",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc5ODI0Mjk0LCJpYXQiOjE3Nzk3Mzc4OTQsImp0aSI6ImM5ZDc4NzA0YmRjYzRhMzZiNjg1NzQ2YWE5NjNmODMzIiwidXNlcl9pZCI6IjQifQ.wuD8NLdAWr7HgC7bDEoNEaTEy2jfi3gDtiMNyKUI9Lw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Grocery Shopping\",\n    \"amount\": 500,\n    \"type\": \"expense\",\n    \"category\": \"food\",\n    \"date\": \"2026-05-25\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://expense-tracker-production-8118.up.railway.app/api/transactions/",
+					"protocol": "https",
+					"host": [
+						"expense-tracker-production-8118",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"transactions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc5ODI0Mjk0LCJpYXQiOjE3Nzk3Mzc4OTQsImp0aSI6ImM5ZDc4NzA0YmRjYzRhMzZiNjg1NzQ2YWE5NjNmODMzIiwidXNlcl9pZCI6IjQifQ.wuD8NLdAWr7HgC7bDEoNEaTEy2jfi3gDtiMNyKUI9Lw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://expense-tracker-production-8118.up.railway.app/api/transactions/18/",
+					"protocol": "https",
+					"host": [
+						"expense-tracker-production-8118",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"transactions",
+						"18",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"refresh\": \"paste fresh refresh token here\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://expense-tracker-production-8118.up.railway.app/api/token/refresh/",
+					"protocol": "https",
+					"host": [
+						"expense-tracker-production-8118",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"api",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": ""
+		},
+		{
+			"value": ""
+		}
+	]
+}
